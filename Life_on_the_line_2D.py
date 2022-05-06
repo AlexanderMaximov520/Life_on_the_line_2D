@@ -1,27 +1,18 @@
 import time
 import random
+import os
 count = 0
-new_world = []
-past_world = []
-empty_world = []
-new_line = []
-line = []
-world = []
-random_world = ["0", "4"]
-length = int(input("Введите длину мира -->"))
-print("Введите длину мира -->", length)
-wide = int(input("Введите ширину мира -->"))
-print("Введите ширину мира -->", wide)
-generations = int(input("Введите число поколений -->"))
-print("Введите число поколений -->", generations)
+new_world, past_world, empty_world, new_line, line, world, random_world = [], [], [], [], [], [], ["0", "4"]
+length = int(input("Введите длину мира --> "))
+wide = int(input("Введите ширину мира --> "))
+generations = int(input("Введите число поколений --> "))
 line = []
 for i in range(wide):
         for g in range(length):
             line.append("0")
         empty_world.append(line)
         line = []
-word = input("Введите 'Да' для генерации случайного мира. -->")
-print("Сгенерировать случайный мир? -->", word)
+word = input("Введите 'Да' для генерации случайного мира. --> ")
 if word == "Да":
     for i in range(wide):
         for g in range(length):
@@ -29,8 +20,8 @@ if word == "Да":
         world.append(line)
         line = []
 else:
-    for i in range(length):
-        for g in range(wide):
+    for i in range(wide):
+        for g in range(length):
             line = input("Вводите '4' или '0' через пробел.").split(" ")
         world.append(line)
         line = []
@@ -67,6 +58,7 @@ for i in range(generations):
     for k in world:
         print(*k)
     time.sleep(0.4)
+    os.system("cls")
     if world == empty_world:
         print("Не осталось живых клеток.")
         break
