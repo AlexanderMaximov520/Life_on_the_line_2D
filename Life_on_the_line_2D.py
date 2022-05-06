@@ -21,10 +21,8 @@ if word == "Да":
         line = []
 else:
     for i in range(wide):
-        for g in range(length):
             line = input("Вводите '4' или '0' через пробел.").split(" ")
-        world.append(line)
-        line = []
+            world.append(line)
 for i in range(generations):
     for line_number in range(0, wide):
         for column_number in range(0, length):
